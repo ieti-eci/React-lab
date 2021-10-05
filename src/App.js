@@ -26,6 +26,14 @@ function App() {
         arr[index].isCompleted = !arr[index].isCompleted;
         setTasks(arr);
     };
+    const newTask = () =>{
+        const newTask = {
+            isCompleted: false,
+            name: neme,
+        };
+
+        setTasks([...tasks,newTask]);
+    };
     const handleSubmit =(event)=>{
         event.preventDefault();
         console.log(textValue);
