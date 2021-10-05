@@ -26,6 +26,11 @@ function App() {
         arr[index].isCompleted = !arr[index].isCompleted;
         setTasks(arr);
     };
+    const handleSubmit =(event)=>{
+        event.preventDefault();
+        console.log(textValue);
+        newTask(textValue);
+    };
     const handleTextChangen = (event)=>{
         const value =event.target.value;
         setTextValue(value);
