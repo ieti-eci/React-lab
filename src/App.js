@@ -18,8 +18,11 @@ function App() {
         }
 
     ]);
-    const handleTaskChange= () =>{
-        console.log("change")
+    const handleTaskChange = (index) =>() =>{
+        console.log("changed "+index)
+        const arr = [...tasks];
+        arr[index].isCompleted = !arr[index].isCompleted;
+        setTasks(arr);
     }
   return (
     <main >
@@ -28,12 +31,12 @@ function App() {
           <button> create task </button>
         </form>
         <ul>
-            {tasks.map((task) => {
+            {tasks.map((task,index) => {
                 return(
                     <TaskItem
                         isChecked={task.isCompleted}
                         taskName={task.name}
-                        onTaskChange={handleTaskChange} />
+                        onTaskChange={handleTaskChange(index)} />
                     );
 
             })}
