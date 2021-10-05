@@ -26,10 +26,10 @@ function App() {
         arr[index].isCompleted = !arr[index].isCompleted;
         setTasks(arr);
     };
-    const newTask = () =>{
+    const newTask = (name) =>{
         const newTask = {
             isCompleted: false,
-            name: neme,
+            name: name,
         };
 
         setTasks([...tasks,newTask]);
