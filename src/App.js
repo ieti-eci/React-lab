@@ -18,16 +18,22 @@ function App() {
         }
 
     ]);
+    const [textValue,setTextValue]=useState("");
+
     const handleTaskChange = (index) =>() =>{
         console.log("changed "+index)
         const arr = [...tasks];
         arr[index].isCompleted = !arr[index].isCompleted;
         setTasks(arr);
-    }
+    };
+    const handleTextChangen = (event)=>{
+        const value =event.target.value;
+        setTextValue(value);
+    };
   return (
     <main >
-        <form>
-          <input type="text" placeholder="Task name"/>
+        <form onSubmit={handleSubmit}>
+          <input value={textValue} onChange={handleTextChangen}  type="text" placeholder="Task name"/>
           <button> create task </button>
         </form>
         <ul>
